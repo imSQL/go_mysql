@@ -10,7 +10,7 @@ import (
 
 type (
 
-	// change master to
+	// Slave change master to
 	Slave struct {
 		MasterBind                string   `json:"master_bind" db:"master_bind"`
 		MasterHost                string   `json:"master_host" db:"master_host"`
@@ -40,7 +40,7 @@ type (
 	}
 )
 
-// new slave struct.
+// NewSlave new slave struct.
 func NewSlave(host string, port uint64, username string, password string, filename string, filepos uint64) (*Slave, error) {
 
 	slave := new(Slave)
@@ -78,32 +78,32 @@ func NewSlave(host string, port uint64, username string, password string, filena
 	return slave, nil
 }
 
-// set master bind
+// SetMasterBind set master bind
 func (slave *Slave) SetMasterBind(master_bind string) {
 	slave.MasterBind = master_bind
 }
 
-// set master connect retry
+// SetMasterConnectRetry set master connect retry
 func (slave *Slave) SetMasterConnectRetry(master_connect_retry uint64) {
 	slave.MasterConnectRetry = master_connect_retry
 }
 
-// set master retry count
+// SetMasterRetryCount set master retry count
 func (slave *Slave) SetMasterRetryCount(master_retry_count uint64) {
 	slave.MasterRetryCount = master_retry_count
 }
 
-// set master delay
+// SetMasterDelay set master delay
 func (slave *Slave) SetMasterDelay(master_delay uint64) {
 	slave.MasterDelay = master_delay
 }
 
-// set master heartbeat period
+// SetMasterHeartbeatPeriod set master heartbeat period
 func (slave *Slave) SetMasterHeartbeatPeriod(master_heartbeat_period uint64) {
 	slave.MasterHeartbeatPeriod = master_heartbeat_period
 }
 
-// set master auto position
+// SetMasterAutoPosition set master auto position
 func (slave *Slave) SetMasterAutoPosition(auto bool) {
 	if auto {
 		slave.MasterAutoPosition = 1
@@ -247,13 +247,13 @@ func (slave *Slave) ChangeMaster(db *sql.DB) error {
 		args = append(args, fmt.Sprintf("MASTER_SSL_CRL='%s'", slave.MasterSSLCert))
 	}
 
-	if len(slave.MasterSSLCrlpath) != 0 {
-		args = append(args, fmt.Sprintf("MASTER_SSL_KEY='%s'", slave.SetMasterSSLKey))
-	}
+	//if len(slave.MasterSSLCrlpath) != 0 {
+	//	args = append(args, fmt.Sprintf("MASTER_SSL_KEY='%s'", slave.SetMasterSSLKey))
+	//}
 
-	if len(slave.MasterSSLKey) != 0 {
-		args = append(args, fmt.Sprintf("MASTER_SSL_KEY='%s'", slave.SetMasterSSLKey))
-	}
+	//if len(slave.MasterSSLKey) != 0 {
+	//	args = append(args, fmt.Sprintf("MASTER_SSL_KEY='%s'", slave.SetMasterSSLKey))
+	//}
 
 	if len(slave.MasterSSLCipher) != 0 {
 		args = append(args, fmt.Sprintf("MASTER_SSL_CIPHER='%s'", slave.MasterSSLCipher))

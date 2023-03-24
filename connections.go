@@ -21,7 +21,7 @@ type (
 	}
 )
 
-// new mysql connection handler.
+// NewConn new mysql connection handler.
 func NewConn(addr string, port uint64, user string, password string) (*Conn, error) {
 	imsql := new(Conn)
 	imsql.Addr = addr

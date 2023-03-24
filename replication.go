@@ -112,17 +112,17 @@ func (slave *Slave) SetMasterAutoPosition(auto bool) {
 	}
 }
 
-// set relay log file
+// SetRelayLogFile set relay log file
 func (slave *Slave) SetRelayLogFile(relay_log_file string) {
 	slave.RelayLogFile = relay_log_file
 }
 
-// set relay log pos
+// SetRelayLogPos set relay log pos
 func (slave *Slave) SetRelayLogPos(relay_log_pos uint64) {
 	slave.RelayLogPos = relay_log_pos
 }
 
-// set master ssl
+// SetMasterSSL set master ssl
 func (slave *Slave) SetMasterSSL(ssl bool) {
 	if ssl {
 		slave.MasterSSL = 1
@@ -131,42 +131,42 @@ func (slave *Slave) SetMasterSSL(ssl bool) {
 	}
 }
 
-// set master ssl ca
+// SetMasterSSLCa set master ssl ca
 func (slave *Slave) SetMasterSSLCa(master_ca string) {
 	slave.MasterSSLCa = master_ca
 }
 
-// set master ssl capath
+// SetMasterSSLCaPath set master ssl capath
 func (slave *Slave) SetMasterSSLCaPath(capath string) {
 	slave.MasterSSLCapath = capath
 }
 
-// set master ssl cert
+// SetMasterSSLCert set master ssl cert
 func (slave *Slave) SetMasterSSLCert(cert string) {
 	slave.MasterSSLCert = cert
 }
 
-// set master ssl crl
+// SetMasterSSLCrl set master ssl crl
 func (slave *Slave) SetMasterSSLCrl(crl string) {
 	slave.MasterSSLCrl = crl
 }
 
-// set master ssl crlpath
+// SetMasterSSLCrlPath set master ssl crlpath
 func (slave *Slave) SetMasterSSLCrlPath(crlpath string) {
 	slave.MasterSSLCrlpath = crlpath
 }
 
-// set master ssl key
+// SetMasterSSLKey set master ssl key
 func (slave *Slave) SetMasterSSLKey(key string) {
 	slave.MasterSSLKey = key
 }
 
-// set master ssl cipher
+// SetMasterSSLCipher set master ssl cipher
 func (slave *Slave) SetMasterSSLCipher(cipher string) {
 	slave.MasterSSLCipher = cipher
 }
 
-// set master ssl verify server cert
+// SetMasterSSLVerifyServerCert set master ssl verify server cert
 func (slave *Slave) SetMasterSSLVerifyServerCert(verify bool) {
 	if verify {
 		slave.MasterSSLVerifyServerCert = 1
@@ -175,12 +175,12 @@ func (slave *Slave) SetMasterSSLVerifyServerCert(verify bool) {
 	}
 }
 
-// set master tls version
+// SetMasterTlsVersion set master tls version
 func (slave *Slave) SetMasterTlsVersion(version string) {
 	slave.MasterTLSVersion = version
 }
 
-// set ignore ids
+// SetIgnoreIds set ignore ids
 func (slave *Slave) SetIgnoreIds(ids ...string) {
 	slave.IgnoreServerIds = append(slave.IgnoreServerIds, ids...)
 }

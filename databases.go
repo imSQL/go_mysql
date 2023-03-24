@@ -16,21 +16,21 @@ type (
 )
 
 const (
-	/*Create one database*/
+	// StmtCreateOneDatabase /*Create one database*/
 	StmtCreateOneDatabase = `
 	CREATE DATABASE IF NOT EXISTS %s DEFAULT CHARACTER SET utf8 DEFAULT COLLATE utf8_general_ci
 	`
 
-	/*Drop a database.*/
+	// StmtDropOneDatabase /*Drop a database.*/
 	StmtDropOneDatabase = `
 	DROP DATABASE %s	
 	`
 
-	/*Query user's database*/
+	// StmtQueryUsersDB /*Query user's database*/
 	StmtQueryUsersDB = `
 	SELECT Db FROM mysql.db WHERE User = '%s'
 	`
-	/*Query all databases.*/
+	// StmtQueryAllDB /*Query all databases.*/
 	StmtQueryAllDB = `
 	SELECT schema_name,default_character_set_name,default_collation_name FROM information_schema.schemata WHERE schema_name NOT IN ('information_schema','performance_schema','sys','mysql')
 	`
